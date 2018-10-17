@@ -1,6 +1,7 @@
 package ui.main;
 
 import data.DataInterface;
+import data.DevFestLoader;
 import data.model.DevFestData;
 import remote.BaseRemoteAPI;
 import remote.DevFestRemoteAPIApi;
@@ -12,7 +13,7 @@ public class MainUi implements InterfaceUI {
 		showMsg("Iniciando sistema de teste de regex com Google Cloud Functions\n\n");
 		showMsg("Carregando dados...\n");
 
-		DataInterface<DevFestData> dataInterface = new DevFestData();
+		DataInterface<DevFestData> dataInterface = new DevFestLoader();
 		DevFestData devFestData = dataInterface.loadModel();
 		if (modelIsInvalid(devFestData)) {
 			showMsg("Erro ao carregar os dados, não são validos\n");
