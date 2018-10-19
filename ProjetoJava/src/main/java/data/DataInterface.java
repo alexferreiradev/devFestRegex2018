@@ -6,7 +6,7 @@ import java.io.File;
 
 public interface DataInterface<ModelType extends BaseModel> {
 
-	ModelType loadModel();
+	ModelType loadModel() throws DataException;
 
 	void setSourceFile(String file);
 

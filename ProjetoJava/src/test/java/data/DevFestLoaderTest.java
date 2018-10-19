@@ -20,8 +20,8 @@ public class DevFestLoaderTest {
 	public void loadModel() throws Exception {
 		DevFestData devFestData = dataLoader.loadModel();
 
-		Assert.assertEquals("Conteudo esperado", devFestData.getFileText());
-		Assert.assertEquals("Path esperado", devFestData.getFilePath());
+		Assert.assertEquals("Teste de arquivo teste", devFestData.getFileText());
+		Assert.assertEquals(null, devFestData.getFilePath());
 	}
 
 }
