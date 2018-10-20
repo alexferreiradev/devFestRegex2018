@@ -13,6 +13,8 @@ import java.net.URI;
 
 public class MainUi implements InterfaceUI {
 
+	private static final String API_REMOTE_URL = "http://localhost:8010/devfest18/us-central1/helloWorld";
+
 	@Override
 	public void showUi() {
 		showMsg("Iniciando sistema de teste de regex com Google Cloud Functions\n\n");
@@ -37,7 +39,7 @@ public class MainUi implements InterfaceUI {
 		showMsg("Api irá fazer extração com regex nos dados e retorna os dados extraídos como resposta\n");
 		BaseRemoteAPI remoteAPI = new DevFestRemoteAPIApi();
 		try {
-			remoteAPI.setURL(URI.create("http://localhost:8080/").toURL());
+			remoteAPI.setURL(URI.create(API_REMOTE_URL).toURL());
 		} catch (MalformedURLException e) {
 			showMsg("Erro ao converter url: %s", e.getMessage());
 			return;
@@ -64,16 +66,16 @@ public class MainUi implements InterfaceUI {
 		showMsg("Resposta de serviço: %s\n", stringResponse);
 	}
 
-	private String convertResponse(Object responseFromRemote) throws Exception {
-		return ResponseHelper.converResponse(responseFromRemote);
+	private String convertResponse(Object responseFromRemote) {
+		return ResponseHelper.convertResponse(responseFromRemote);
 	}
 
 	private boolean responseIsInvalid(Object responseFromRemote) {
-		return responseFromRemote != null;
+		return responseFromRemote == null;
 	}
 
 	private boolean modelIsInvalid(DevFestData devFestData) {
-		return devFestData != null;
+		return devFestData == null;
 	}
 
 	private void showMsg(String format, Object... args) {

@@ -2,7 +2,7 @@ package remote.helper;
 
 public final class ResponseHelper {
 
-	public static String converResponse(Object response) throws IllegalArgumentException {
+	public static String convertResponse(Object response) throws IllegalArgumentException {
 		if (response instanceof String) {
 			return ((String) response);
 		}
