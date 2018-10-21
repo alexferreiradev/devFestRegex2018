@@ -6,8 +6,8 @@
  * @param {Object} res Cloud Function response context.
  *                     More info: https://expressjs.com/en/api.html#res
  */
-exports.helloWorld = (req, res) =;
->
-{
-	res.send(`Hello ${req.body.name || 'World'}!`);
-}
+exports.helloWorld = (req, res) => {
+	var emailRegex = /\w+@.+\.com/i;
+
+	res.send(`E-mail encontrado: ${emailRegex.exec(req.body)}!`);
+};

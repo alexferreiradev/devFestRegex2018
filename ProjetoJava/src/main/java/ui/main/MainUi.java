@@ -39,6 +39,7 @@ public class MainUi implements InterfaceUI {
 		showMsg("Api irá fazer extração com regex nos dados e retorna os dados extraídos como resposta\n");
 		BaseRemoteAPI remoteAPI = new DevFestRemoteAPIApi();
 		try {
+			remoteAPI.setData(devFestData);
 			remoteAPI.setURL(URI.create(API_REMOTE_URL).toURL());
 		} catch (MalformedURLException e) {
 			showMsg("Erro ao converter url: %s", e.getMessage());
